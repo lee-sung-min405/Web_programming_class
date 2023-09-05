@@ -1,0 +1,722 @@
+<meta charset="UTF-8"> UTF-8으로 읽기
+<table border=1 style="border-collapse: collapse;"> 표 스타일
+<colgroup><col width=100><col width=100></colgruop> 셀 크기
+<td style="color:red;"> 글자 색
+<td align=right> 정렬
+<a href="https://en.wikipedia.org/wiki/Markup" target=_blank> 링크, 블랭크는 새창으로 열기
+//<thead>는 표의 가장 윗부분 행, <tbody>는 중앙셀, <tfoot>은 표의 가장 아랫부분 행
+//<thead>는 항상 처음으로 올라가고, <tfoot>은 항상 가장 밑으로 내려감
+//<table>로 표를 그리고, <tr>로 행을 만들고, <td>로 셀을 구분함, <th>는 글자 진하게
+//<td rowspan="2">라고 하면 그 셀과 아래 행의 셀, 총 2개가 병합됨
+//<td colspan="3">이라고 하면 그 셀과 같은 행, 다른 열에 있는 셀 3개가 병합됨
+//style ="margin-top:45px;"​ 라고 하면 위쪽에 45픽셀정도의 여백을 주는것이다.
+<strong> 글자 강조
+<br> 다음줄 이동
+<p> 단락 구분
+<b>글자 굵기
+<strong>글자 굵기
+<i>글자 기울기
+<strike>취소선 긋기
+<u>밑줄긋기
+<sup>위 첨자
+<sub>밑 첨자
+<tt>타자체
+<big>주변보다 크게
+<small>주변보다 작게
+<em>강조 텍스트
+<mark>표시된 텍스트
+<del>삭제된 텍스트
+<ins>삽입된 텍스트
+<hr>가로선 긋기
+&nbsp; 공백삽입
+<font size=5> </font>
+<font color=""></font>
+<width="100%">크기 조정
+a &lt b // a<b의 비교 연산자
+
+1.<ul><li></li></ul> : 리스트 , 메뉴 만들기
+2.<ol><li></li></ol> : 리스트의 메뉴의 수를 자동으로 넘버링 하기
+<title></title> 웹페이지의 제목
+
+<input type="checkbox"> : 체크박스 설정하기
+
+동영상 삽입 : 유튜버 - 공유 - 퍼가기 - 복사 붙여 넣기
+
+댓글 기능 달기 :
+ <div id="disqus_thread"></div>
+        <script>
+            /**
+            *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+            *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+            /*
+            var disqus_config = function () {
+            this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+            this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+            };
+            */
+            (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+            s.src = 'https://web1-pmyzte296d.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+채팅 기능 달기:
+
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/62d2cd8e7b967b117999d816/1g83n5the';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+
+--------------------------------------css 태그들-------------------------------------
+text-decoration: none; : 글자의 효과의 유무
+font-size:45px 글자 폰트 크기 정렬
+text-align : center, left,right;  글자 정렬
+-------
+효과
+태그 < class < id
+
+태그 a{}
+class .name{}  class="name"
+id    #name  id="name"
+----------
+박스 모델
+개념 block level element는 화면 전체를 사용
+개념 inline element는 필요한 부분의 화면만 사용
+
+border-width:5px;    5px의 선을 만들어 준다
+border-color: red;    선의 색까을 입혀준다
+border-style: solid; 선의 형태를 줄선으로 선택해 준다.
+
+중복이 되면 border:5px red solid;로 줄일 수 있음. 
+
+display:inline    inline->block 의 형태로 바꾸어준다
+display:block   block->inline 의 형태로 바꾸어준다
+
+padding:20px; 테두리 사이에 간격
+
+margin:20px 테두리와 테두리 사이의 간격
+
+width;100px 100px만큼의 테두리의 크기가 번경된다.
+
+border-bottom:  아래쪽을 의미함
+----------
+
+태그들을 묶어줄수 있다콤마를 이용하여
+
+오후 7:41 2022-07-18
+---------------그리드---------------
+<div></div> 은 block level element의 성질을 띤다
+<span></span> 은 inline element의 성질을 띤다
+둘다 아무 기능도 없는 껍데기 이며 디자인을 하기 위하여 많이 쓰인다.
+
+grid-template-columns:150px 1fr; 화면에서 열을 설정해준다.
+
+---------------------------------------미디어 쿼리 소개---------------------------------------
+@media(min-width:800px)  //스크린의 폭 > 800px
+  // 미디어의 화면 크기가 최소 800px일 때 작동한다. 
+{
+	div{
+		display:none;
+	}
+}
+
+@media(max-width:800px) //스크린의 폭 <800px
+
+------------------------------------css불러오기----------------------------------------------
+<link rel="stylesheet" href="CSS-wedproject.css">
+
+-----------------------------------css 속성-----------------------------------------------
+white-space:nowrap; 인라인 속성을 부시하고 부모 영역을 벗어나게 하는 성질
+
+--------------------------------------javaScript-----------------------------------------------
+<script src=""></script> <!--자바스크립트 연동-->
+
+//body의 환경 설정을 변경 해주는 코드들
+
+*onclick의 속성뒤에는 항상 자바스크립트가 와야한다.
+
+<input type="button" value="night" onclick="document.querySelector('body').style.backgroundColor='black';
+        document.querySelector('body').style.color='white';">
+
+<input type="button" value="day" onclick="document.querySelector('body').style.backgroundColor='white';
+        document.querySelector('body').style.color='black';">
+
+//경고창 띄우는 명령어 alert [onclick]
+<input type="button" value="경고창 띄우기" onclick="alert('경고 창 실행')">
+
+//onchange 명령어는 입력되어있는 문자로 다시 바꾸어서 출력을 해준다. alert [onchange]
+<input type="text" onchange="alert('changed')">
+
+//키를 눌렀을때 '키를 눌렀습니다 창 실행' alert [onkeydown]
+<input type="text" onkeydown="alert('키를 눌렀습니다.')">
+
+//length 문자열의 갯수를 돌려준다
+alert('문자들'.length)
+
+//문자열에 대한 명령어들 모음
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toUpperCase
+
+//css 속성 선택하기 querySelector
+var el = document.querySelector(".원하는 css class, id, 태그")
+
+// 비교 연산자
+a===b  // a와b는 같다.
+a<b     // a가 b보다 크다.
+a>b     // a가 b보다 작다.
+
+//id값의 value값이 무엇인지 알아보는 자바 스크립트 명령어 .value라는 프러퍼티를 사용하면된다.
+var value = document.getElemenyById(id).value
+var value = document.querySelector(id).value
+
+//콘솔에서 id값이 가르키는 내용을 호출하는 것이다.
+document.querySelector('#night_day')
+
+//콘솔에서 현재의 id 값의 value의 값이 무엇인지 알려준다, 가르킨다?.
+document.querySelector('#night_day').value
+
+//리팩토링(Rafactoring) 리팩토링 중복의 제거 : 기존의 코드의 중복을 없에고 가독성을 높이며 간결하게 다시 수정하는것을 리팩토링이라고 한다.
+this.value=' value값 ' //this을 이용하여 딱히 id값을 사용하지 않아도 자기 자신을 참조할 수 있다. 그럼으로 코드의 유지 보수하기 유리하다.
+
+//배열
+var coworkers = ["a","b"]; //배열을 생성해준다.
+coworkers[0] // 인덱스가 0인 값에 들어있는 a를 출력해준다.
+coworker.length; // 배열안에 있는 갯수를 불러 온다 .length
+coworker.push('c'); // coworker라는 배열에 c의 데이터 값을 추가해준다.
+
+//배열관련된 명령어들 참고하는 사이트
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+
+//a태그의 텍스트의 색깔을 번경해준다
+           var alist=document.querySelectorAll('a'); //querySelectorAll태그는 ()안의 속성을 
+                                                             전부 불러와 배열 형태로 저장해준다.
+            var i=0
+            while(i<alist.length){
+                alist[i].style.color='powderblue';
+                i++;
+            }
+//---------------------------객체 생성하는법-------------------------
+//객체는 {}중괄호, 배열은 []대괄호
+var coworkers={
+	"programmer":"egoing", "designer":"leezche"
+};
+document.write("programmer : "+coworkers.programmer);
+document.write("designer : "+coworkers.designer);
+
+//객체 추가하기
+coworkers.add="add1";
+document.write("add : "+coworkers.add);
+
+//띄어쓰기 되어있는 명 넣기
+coworkers["data scientist"]="data";
+document.write("data scientist : "+coworkers["data scientist"]);
+
+//객체에서 모든 데이터의 키 값을 불러 오는법
+for(var key in coworkers){
+	document.write(key+'<br>');
+}
+
+//객체에서 모든 데이터의 벨류 값을 불러 오는법
+for(var key in coworkers){
+	document.write(key ' : ' + coworkers[key] + '<br>');
+}
+//객체에 함수 정의하기
+coworkers.showAll=function(){
+}
+
+function showAll(){} //이것과 같은 의미를 가진다.
+
+var showAll = function(){} //함수를 정의할때 이렇게 정의하는것도 가능하다.
+
+
+//객체 안에 함수 사용하는 것을 응용하기
+coworkers.showAll=function(){
+	for(var key in this){
+		document.write(key ' : ' + this[key] + '<br>');
+	}
+}
+coworkers.showAll(); //함수 사용
+
+--------------------------제이쿼리---------------------
+제이쿼리를 사용하게 되면 간단하게 만들수 있다.
+//제이쿼리 사용 할때 위쪽에 아래 코트를 입력을 해주고 불러 주어야함
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+$('a').css('color',color); //a태그에 있는 모든 글자의 색깔을 바꿔주겠다
+
+ $('body').css('color',color); //바디안에 있는 글자의 모든 색깔을 바꿔주겠다.
+
+ $('body').css('background',color); //바디안에 있는 백그라운드 색깔을 바꿔주겠다.
+------------------------검색어------------------
+웹페이지에 대한 어떤 객체를 삭제하거나 추가하고 싶으면 document를 공부
+만약 찾을수 없으면 DOM으로 수색범위 넓히기
+웹브라우저 자체를 제어해야한다면 window알아보기 현재 웹페이지의 주소나 새창을 
+열거나 웹브라우저의 화면 크기를 자마 스크립트로 알아볼려면 window를 알아보아야하고
+ajax는 웹페이지를 리로드 하지않고 정보를 변경할려면 사용
+cookie 웹페이지가 리로드가 되어도 현재상태를 유지하고 싶다면.
+offline web application 인터넷이 끊겨도 동작하는 웹페이지를 만들고 싶다면.
+webRTC 화상통신 웹 엡을 만들고 싶으면.
+speech사용자의 음성과 음성을 저달하고 싶다면.
+webGl 3차원 그래픽과 같은 게임을 만들고 싶다면.
+webVR 가상현실에 관심이 많으시다면.
+
+-----------------------------------------PHP--------------------------------
+
+<?php      ?> php에 해당하는 코드는 저렇게 감싸줘야한다.
+또한 php의 문법 뒤에는 항상 ;을 붙여주어야한다.
+그리고 php의 최종 코드는 사라진다.
+
+echo ;, print(); : 화면에 무엇인가를 표현하고 싶을때 사용
+
+0.데이터 타입들
+
+1.숫자를 다루는 방법
+-integers(정수) :  echo1.5; echo 0; echo -5;
+
+2.연산자
+-, +, *, / ....
+
+3.문자열 & 문자열 결합
+-string :  echo 'hello word'; , print("안녕하세요!!");
+
+-문자열 결합 : echo "hello"."world";   . 을 이용하여 결합 
+
+-문자열의 갯수를 알려주는 함수 strlen: echo strlen("갯수를 셀 문자");
+
+4.변수
+php에서는 $을 앞에 붙여 변수로 사용한다.
+-$a=1;
+
+5.php의U URL 파라미터 - $_GET 함수['name']
+
+-.안녕하세요.<?php echo $_GET['name']?>님
+
+주소창 =http://localhost:81/php_1.php?name=이성민
+
+-. 파일의 이름뒤에 ?로 시작하고 입력값과 입력값을 구분할때는 &를 사용한다.
+
+안녕하세요.<?php echo $_GET['name']?>님<?php echo $_GET['age']?>
+
+주소창 =http://localhost:81/php_1.php?name=이성민&age=20
+
+6.URL 파라미터의 활용
+       <ul id="menu">
+            <h1>
+            <?php 
+                echo $_GET['id'];
+            ?>
+            </h1>
+           
+            <h3 id="menu-head">Menu</h3>
+            <li><p><a href="php_1.php? id= Untitled-1" 
+                style="color:red; text-decoration : underLine">자기소개</a></p></li>
+
+            <li><p><a href="php_1.php? id= Untitled-2" class="saw">SNS</a></p></li>
+
+            <li><p><a href="php_1.php? id= Untitled-3" class="saw" id="active">스펙</a></p></li>
+
+            <li><p>프로젝트</p></li>
+        </ul>
+    
+7.함수
+
+$str = ' php로 이루어진 이것은 본문의 내용입니다. 
+                다음은 본문의 글자의 길이 입니다 : ';
+
+- strlen( ) : 글자의 갯수,길이를 반환 해주는 함수
+ex) echo nl2br($str);
+
+-nl2br( ) : 줄바꿈을 해주는 함수
+ex) echo strlen($str);
+
+- file_get_contents("data\css.txt"); : 파일을 불러와 읽어 출력해주는 함수
+
+ex) echo file_get_contents("data\css.txt");
+
+ex) echo file_get_contents("data\\".$_GET['id'].".txt");
+
+8.제어문 = 조건문, 반복문
+
+8-1 Boolean
+
+-var_dump( ) : 이 함수는 데이터를 출력을 해주고 데이터의 타입까지 알려준다.
+ex) var_dump(1)
+
+  
+-Boolean
+isset(); = 값이 true인지 false인지 판단해준다.
+
+-if(){}
+
+-else{}
+
+-while(){}
+
+8-2 배열의 형식
+$i=array('a','b','c'); = 배열을 정의를 해준다.
+echo $i[1]; = 저장된 배열에서 인덱스에 해당하는 값을 출력을 해준다. 
+
+-배열의 길이를 반환해주는 함수, count()
+echo count($i);
+
+-배열에 값을 추가하는 함수, array_push()
+echo array_push($i,"e","f");
+
+8-3 반복문과 조건문의 활용
+-array scandir(string $directory); =  원하는 위치의 파일의 목록을 가져올수 있다. 그리고 그것을 배열의 형태로 저장할 수 있다.
+ex)	 $list=scandir('./data');
+         var_dump($list);
+
+8-4 count() 배열의 갯수을 숫자로 반환해준다.
+
+8-5 함수의 활용
+function 변수이름(){}
+
+ex) 
+<?php
+    function print_title(){
+        
+        if(isset($_GET['id'])){
+            echo $_GET['id'];
+        }
+        else{
+            echo "환영합니다.";
+        }
+    }
+
+    function print_section(){
+        if(isset($_GET['id'])){
+            echo file_get_contents("data\\".$_GET['id']."");
+        }
+    }
+
+    function print_menu(){
+        $list=scandir('./data');
+
+        $i=0;
+        while($i < count($list)){
+            if($list[$i]!='.'){
+                if($list[$i]!='..'){
+                    echo "<li><a href=\"php_1.php?id=$list[$i]\">$list[$i]</a></li>";
+                }
+            }
+            $i=$i+1;
+        }
+    }
+?>
+
+9. from과 post
+
+ex)	<input type="text" placeholder="title">
+	<input type="submit">
+
+이것의 내용을 서버의 어떤 페이지에 보낼것인지를 알려주어야 하기 때문이다. from을 사용한다.
+ex html)	
+
+<!doctype html>
+<html>
+    <body>   
+        <form action="form.php">
+            <p><input type="text" name="title" placeholder="Title"></p>
+            <p><textarea name="description"></textarea></p>
+            <p><input type="submit"></p>
+        <form>
+    </body>
+</html>
+
+
+ex php)
+
+<?php
+   file_put_contents('data/'.$_GET['title'],$_GET['description']); 
+   echo "<p>title: ".$_GET['title']."</p>";
+   echo "<p>description: ".$_GET['description']."</p>";
+?>
+
+file_put_contents()함수 : 이 함수는 데이터를 파일에 넣어주는 함수이다.
+
+#url을 이용하여 데이터를 관리하기에는 안좋다. 사용자가 의도치 않게 글을 작성및
+삭제를 할 수 있기 때문에 데이터를 삭제 작성에는 사용하지 않는다. 단 페이지를 다른사람에게
+공유할때는 적합한 방식이다.
+
+-위와 같은 문제를 해결하기 위하여 form태그 안에 method="post"를 사용한다.
+ex) <form action="form.php" method="post">
+만약 여기서 method값을 설정 해주지 않으면 기본값인 GET이 적용이 된다.
+
+
+그리고 데이터를 받을 때에는 $_POST형태로 받아준다.
+
+ex) 
+   <?php
+   file_put_contents('data/'.$_POST['title'],$_POST['description']);
+   echo "<p>title: ".$_POST['title']."</p>";
+   echo "<p>description: ".$_POST['description']."</p>";
+   ?>
+
+-<textarea>태그는 긴 본문을 작성할 수 있는칸을 만들어 준다
+ex) <textarea name="description"></textarea>
+
+- header('Location:/php_1.php?id='.$_POST['title']);
+이함수는 사용자를 해당주소로 팅겨 낼 수 있다.
+
+
+9. 글작성 코드
+		<a href="create.php">create<br></a>
+
+                <form action="create_process.php" method="post">
+                    <p><input type="text" name="title" placeholder="Title"></p>
+                    <p><textarea name="description"></textarea></p>
+                    <p><input type="submit"></p>
+                <form>
+
+-------
+
+		<?php
+  			 file_put_contents('data/'.$_POST['title'],$_POST['description']);
+   			 header('Location:/php_1.php?id='.$_POST['title']);
+		?>
+
+9-1. 글 수정
+	rename()함수 : 파일명을 다른 파일명으로 바꿔준다.
+
+ex)
+<?php
+rename('data/'.$_POST['old_title'], 'data/'.$_POST['title']);
+file_put_contents('data/'.$_POST['title'], $_POST['description']);
+header('Location:/php_1.php?id='.$_POST['title']);
+?>
+
+ex)
+		<a href="create.php">create<br></a>
+                <?php
+                    if(isset($_GET['id'])){
+                ?>
+                <a href="update.php?id=<?php echo $_GET['id']; ?>">update<br></a>
+                <?php
+                    }
+                ?>
+
+9-2 글 삭제
+
+ex) <a href="delete_process.php">delete<br></a>
+
+ex)<?php
+    unlink('data/'.$_GET['id']);
+    header('Location:/php_1.php?id='.$_POST['title']);
+?>
+
+unlike()함수 : 데이터를 삭제해준다.
+
+#데이터를 삭제할때 URL방법으로 데이터를 넘기면 삭제 주소만 받았을때 삭제가 될 수 있기
+때문에 POST방식으로 데이터를 다루어야한다 밑의 예제는 POST방법으로 데이터를 다룬 
+방식이다.
+
+ex)<form action="delete_process.php" method="post">
+	<input type="hidden" name="id" value="<?php echo $_GET['id'];?>">
+	<input type="submit" value="delete">
+</form>
+
+ex)<?php
+    unlink('data/'.$_GET['id']);
+    header('Location:/php_1.php?id='.$_POST['title']);
+?>
+
+10. 파일로 모듈화 하기 require()함수
+
+<?php
+    require('경로의 주소');
+?>
+
+ex) 
+<?php
+    require('lib/print.php');
+?>
+
+#require는 중복을 php에서 혀용하지 않기 때문에 만약 중복이 나는 코드라면
+require_once();함수를 사용하면 된다.
+
+11. 보안 문제
+
+11-1 경고문자 문제
+<script>
+alert('WWW')
+</script>
+
+11-2 다른링크로 보내기 문제
+<script>
+location.href="https://www.naver.com/";
+</script>
+
+11-3. 이러한 문제를 막기 위하여 사용자가 변경 하여 문제가 발생할 거 같은 부분들은
+htmlspecialchars()함수를 이용하여 준다.(사용자가 입력하는 것들은 무조건 불신해라.)
+
+ex)echo htmlspecialchars($_GET['id']);
+ex)echo htmlspecialchars(file_get_contents("data\\".$_GET['id'].""));
+ex)    $title =htmlspecialchars($list[$i])
+	echo "<li><a href=\"php_1.php?id=$title\">$title</a></li>";
+
+11-4. 뿐만 아니라 URL을 이용하여 공경을 할 수 도 있다. 이것을 방지하기 위하여
+basename()함수를 사용한다.
+이함수는 파일의 명만을 강져와 준다.
+
+ex)ecoh basename("data/".($_GET['id']);
+
+ex)         if(isset($_GET['id'])){
+            $basename=basename($_GET['id']);
+            echo htmlspecialchars(file_get_contents("data\\".$basename.""));
+        }
+
+11-5 삭제 버튼을 남용하면 안되기 때문에 삭제 기능에 basename()함수를 이용해주어야한다.
+
+ex)
+<?php
+    unlink('data/'.basename($_POST['id']));
+    header('Location:/php_1.php?id='.$_POST['title']);
+?>
+
+12. Sessions함수 나중에 공부하기 
+로그인 관련
+
+-----------------------------------------------MySQL--------------------
+mysql 접속
+cd C:\Bitnami\wampstack-8.1.4-0\mariadb\bin 에서 mysql -uroot -p
+
+./ mysql -uroot -p
+여기서 root는 관리자로 데이터 베이스를 다룬다는 것이다.
+여기서 관리자는 최상의 권력을 가지고 있다. 여기서 u는 사용자인 urser을 가르킨다.
+
+-데이터 베이스 생성하기 : 데이터 베이스 생성
+CREATE DATABASE menagerie; menagerie부분에서는 내가 원하는 이름
+
+-데이터 베이스 삭제하기 : 데이터 삭제
+ DROP DATABASE  menagerie; menagerie라는 데이터 베이스 삭제
+
+-데이터 베이스 조회 : 데이터 조회
+SHOW DATABASES; 
+
+-데이터 베이스 사용 : 내가 지목한 데이터 베이스를 사용을 하겠다.
+USE opentutorials;
+
+-데이터 타입
+INT(size) : 정수형
+VARCHAR(size):글자형 255개의 문자까지만혀용
+TEXT(size) : 65000개의 문자를 혀용한다
+LONGTEXT(size): 4기가까지 허용한다.
+DATATIME : 날짜와 시간을 모두 표시할 수 있다.
+
+-테이블 생성 : 테이블을 생성한다.
+CREATE TABLE topic(
+	c1 datatype(length) NOT NULL  AUTO_INCREMENT, // NOT NULL이란 값이 없는것을 허용하지 않겠다. AUTO_INCREMENT는 데이터가 추가가 되면 자동으로 1증가된 값으로 저장이 된다.
+	c2 datatype(length)
+	c3 datatype(length) NULL // NULL은 값이 없는것을 허용한다는 것이다.
+	.
+	.
+	.
+	PRIMARY KEY(c1) // 데이터 베이스야 우리가 지금 생성하는 토픽 테이블에 id컬럼이 프라임머리키 메인키야 라고 알려주는것 
+)ENGINE=InnoDB;
+ 프라이머리키를 사용하는것은 중복과 성능을 위하는 것이다.
+
+-테이블 생성 ex)
+
+CREATE TABLE topic (
+id INT(11) NOT NULL AUTO_INCREMENT,
+title VARCHAR(100) NOT NULL,
+description TEXT NULL,
+created DATETIME NOT NULL,
+author VARCHAR(30) NULL,
+profile VARCHAR(100) NULL,
+PRIMARY KEY(id)
+);
+
+
+용어들---
+-table : 표
+-row, record : 행
+-column : 열
+
+-INSERT 데이터 생성
+ex) INSERT INTO topic : topic라는 테이블에 행을 삽입한다.
+ID컬럼을 지정하지 않으면 자동으로 auto_increment로 설정이된다.
+ex)INSERT INTO topic(title,description,created,author,profile) VALUES('MySQL','MySQL is....',NOW(),'egoing','developer');
+
+
+-DESC
+ex) DESC topic; 토픽의 구조를 보여준다.
+
+
+-FROM 테이터를 가져오는것
+SELECT * FROM topic; select는 내가 가져오고 싶은 데이터를 토픽에서가져와라 라는 기능을 가졌다.
+
+
+-SELECT 데이터 읽는것
+SELECT * FROM topic; 모든 데이터 출력
+
+SELECT id,title,created,author FROM topic; 입력된 값들만 출력
+
+-WHER 원하는 데이터만을 가져올때
+SELECT id, title,created,author FROM topic WHERE author='egoing';
+
+
+-ORDER BY 데이터들을 정렬해준다.
+SELECT id, title,created,author FROM topic WHERE author='egoing' ORDER BY id DECS LIMIT 2; /DESC는 쿤숫자가 나오게하는것, LIMIT는 데이터의 갯수를 제한을 해주는것이다.
+
+-UPDATE 데이터들을 수정을 해준다.
+UPDATE topic SET description='Oracle is...', title="ORCALE" WHERE id=2;
+//여기서 WHERE id=2가 빠지면 원하지 않은 모든 데이터들의 값이 변경될 수 있기 때문에 꼭 빼먹으면 안된다.
+
+-DELETE 데이터를 삭제를 해준다.
+DELETE FROM topic WHERE id=5;
+
+SHOW TABLES; - 현재 테이블의 목록을 보여준다.
+
+RENAME TABLE 테이블명 TO 바꿀 이름; - 테이블의 이름을 바꾸어 준다.
+
+-예제 코드 author이라는 새로운 테이블을 만들어준다.
+CREATE TABLE `author` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(20) NOT NULL,
+  `profile` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+);
+
+-예제 코드 topic이라는 새로운 데이터를 만들어준다. 
+CREATE TABLE `topic` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL,
+  `description` text,
+  `created` datetime NOT NULL,
+  `author_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+);
+
+-예제코드 데이터 삽입 작업
+INSERT INTO `author` VALUES (1,'egoing','developer');
+INSERT INTO `author` VALUES (2,'duru','database administrator');
+INSERT INTO `author` VALUES (3,'taeho','data scientist, developer');
+
+-예제코드 데이터 삽입 작업
+ 
+INSERT INTO `topic` VALUES (1,'MySQL','MySQL is...','2018-01-01 12:10:11',1);
+INSERT INTO `topic` VALUES (2,'Oracle','Oracle is ...','2018-01-03 13:01:10',1);
+INSERT INTO `topic` VALUES (3,'SQL Server','SQL Server is ...','2018-01-20 11:01:10',2);
+INSERT INTO `topic` VALUES (4,'PostgreSQL','PostgreSQL is ...','2018-01-23 01:03:03',3);
+INSERT INTO `topic` VALUES (5,'MongoDB','MongoDB is ...','2018-01-30 12:31:03',1);
+
+-JOIN 테이블 합치기
+
+
+------------------------------------mysql + php---------------------------------------
+mysqli_connect()함수 
+//mysql에서 localhost의 주소를 참조하여 사용자에 ID와 비밀번호를 입력해주고 
+opentutorials의 테이블을 USE(사용)한다는 역할을 한다. 서버에 접송해준다.

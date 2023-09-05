@@ -1,0 +1,260 @@
+ <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>JS Bin</title>
+  <script>
+    function numberButton(num){
+      if(document.getElementById('display2').innerHTML=='0'){
+        document.getElementById('display2').innerHTML=num;
+      }
+      else{
+        document.getElementById('display2').innerHTML+=num;
+      }
+    }
+    let curValue=0;
+    let operator='';
+    let surValue;
+    let save;
+    
+    function plusButton(){
+      curValue=parseFloat(document.getElementById('display2').innerHTML); //더하기
+      document.getElementById('display2').innerHTML=0;
+      operator='+'
+    }
+
+    function subtractButton(){
+      curValue=parseFloat(document.getElementById('display2').innerHTML); //빼기
+      document.getElementById('display2').innerHTML=0;
+      operator='-'
+    }
+
+    function divisionButton(){
+      curValue=parseFloat(document.getElementById('display2').innerHTML); //나누기
+      document.getElementById('display2').innerHTML=0;
+      operator='/'
+    }
+
+    function productButton(){
+      curValue=parseFloat(document.getElementById('display2').innerHTML); //곱하기
+      document.getElementById('display2').innerHTML=0;
+      operator='*'
+    }
+
+    function pm(){
+      surValue=parseFloat(document.getElementById('display2').innerHTML)*-1; //마이너스 부호 버튼
+      document.getElementById('display2').innerHTML=surValue;
+    }
+
+    function pie(){
+        surValue=parseFloat(document.getElementById('display2').innerHTML)*Math.PI; //파이
+        document.getElementById('display2').innerHTML=surValue;
+    }
+    
+    function xyz(){
+        surValue=parseFloat(document.getElementById('display2').innerHTML)/100; //백분율
+        document.getElementById('display2').innerHTML=surValue;
+    }
+
+    function xyzd(){
+        surValue=Math.sqrt(document.getElementById('display2').innerHTML); //루트
+        document.getElementById('display2').innerHTML=surValue;
+    }
+
+    function xyzde(){
+        surValue=document.getElementById('display2').innerHTML*document.getElementById('display2').innerHTML; //제곱
+        document.getElementById('display2').innerHTML=surValue;
+    }
+    
+    function rt(){
+        surValue=parseFloat(document.getElementById('display2').innerHTML); //R2
+        let rrrt=(surValue.toFixed(2));
+        document.getElementById('display2').innerHTML=rrrt;
+    }
+
+    function ro(){
+        surValue=parseFloat(document.getElementById('display2').innerHTML);//R0
+        document.getElementById('display2').innerHTML=surValue.toFixed();
+    }
+     ////-----------------------------------------------------------------------------------
+    function mc(){
+        save=0;
+    }
+    function mp(){//m+ 저장된 값에 +
+        save=Math.abs(save);
+        document.getElementById('display2').innerHTML=save;
+    }
+    function mn(){
+        if(save>0){
+            save=save*-1;
+            document.getElementById('display2').innerHTML=save;
+        }
+        else if(save<0){
+            document.getElementById('display2').innerHTML=save;
+        }
+    }
+    function mr(){
+        save=parseFloat(document.getElementById('display2').innerHTML);//mr
+        document.getElementById('display2').innerHTML= 0;
+    }
+    ////-----------------------------------------------------------------------------------
+    function rest(){
+        curValue=parseFloat(document.getElementById('display2').innerHTML)*0;//CE 리셋하기
+        document.getElementById('display2').innerHTML= curValue;
+    }
+
+
+
+    function equalButton(){
+      if(operator=='+'){
+        curValue+=parseFloat(document.getElementById('display2').innerHTML);
+        document.getElementById('display2').innerHTML=curValue;
+      }
+
+      else if(operator=='-'){
+        curValue-=parseFloat(document.getElementById('display2').innerHTML);
+        document.getElementById('display2').innerHTML=curValue;
+      }
+
+      else if(operator=='*'){
+        curValue*=parseFloat(document.getElementById('display2').innerHTML);
+        document.getElementById('display2').innerHTML=curValue;
+      }
+
+      else if(operator=='/'){
+        curValue/=parseFloat(document.getElementById('display2').innerHTML);
+        document.getElementById('display2').innerHTML=curValue;
+      }
+
+      
+
+      else{
+
+      }
+
+    }
+
+  </script>
+
+  <style>
+
+ 
+
+ @media (max-width:540px){
+      div.empty{display:none;}
+      div.vertical{display:block;}
+      div.horizontal{display:none;}
+    }
+
+    @media (max-width:360px){
+      div.empty{display:block;}
+      div.vertical{display:none;}
+      div.horizontal{display:none;}
+    }
+
+    @media (min-width:541px){
+      div.empty{display:none;}
+      div.vertical{display:none;}
+      div.horizontal{display:block;}
+    }
+
+    #display{}
+    table{padding:60px;}
+    td{}
+    button.num{
+      width:60px;
+      height:60px;
+    }
+
+    button.operator{
+      width:60px;
+      height:60px;
+      background-color:yellow;
+    }
+
+    button.b{ 
+      width:60px;
+      height:60px;
+      background-color:lightgray;
+    }
+
+    button:hover{border: 1px solid #ffcc00}
+
+  </style>
+</head>
+<body>
+  <div class="empty"><p>표시할수 없음.</p></div>
+  <div class="vertical">
+
+    <table width=360 height=660 border=0 bgcolor=#dee4ea>
+      <tr  border=0><th colspan="4" align=right bgcolor=#ffffff><span id="display1"><p>30</p></span></th></tr>
+
+      <tr><td><button class="b">mc</button></td><td><button class="b">m+</button></td><td><button class="b">m-</button></td><td><button class="b">mr</button></td></tr>
+
+      <tr><td><button class="b">CE</button></td><td><button class="b">√x</button></td><td><button class="b">%</button></td><td><button class="operator">/</button></td></tr>
+
+      <tr><td><button class="num">7</button></td><td><button class="num">8</button></td><td><button class="num">9</button></td><td><button class="operator">*</button></td></tr>
+
+      <tr><td><button class="num">4</button></td><td><button class="num">5</button></td><td><button class="num">6</button></td><td><button class="operator">-</button></td></tr>
+
+      <tr><td><button class="num">1</button></td><td><button class="num">2</button></td><td><button class="num">3</button></td><td><button class="operator">+</button></td></tr>
+
+      <tr><td><button class="num">0</button></td><td><button class="num">.</button></td><td><button class="num">+/-</button></td><td><button class="operator">=</button></td></tr>
+
+      <tr><td><button class="b">ㅠ</button></td><td><button class="b">x^2</button></td><td><button class="b">R2</button></td><td><button class="b">R0</button></td></tr>
+
+      <tr><th colspan="4" style="color:blue;"><i><u>Get a Widget for this Calculator</u></i></th></tr>
+
+      <tr><th colspan="4" align=right><p>20193127 이성민</p></th></tr>
+
+    </table>
+
+    </div>
+
+  <div class="horizontal">
+      
+    <table width=600 height=360 border=0 bgcolor=#dee4ea>
+
+        <tr  border=0><th colspan="7" class="result" align=right bgcolor=#ffffff><span id="display2">0</span></th></tr>
+
+        <tr><th><button class="b" onclick="mc()">mc</button></th><th><button class="b" onclick="mp()">m+</button></th><th><button class="num" onclick='numberButton(7);'>7</button></th><th><button class="num" onclick='numberButton(8);'>8</button></th><th><button class="num"  onclick='numberButton(9);'>9</button></th><th><button class="operator" onclick='divisionButton()'>/</button></th><th><button class="num" onclick='rt()'>R2</button></th></tr>
+
+        <tr><th><button class="b" onclick="mn()">m-</button></th><th><button class="b" onclick="mr()">mr</button></th><th><button class="num" onclick='numberButton(4);'>4</button></th><th><button class="num" onclick='numberButton(5);'>5</button></th><th><button class="num" onclick='numberButton(6);'>6</button></th><th><button class="operator" onclick='productButton()'>*</button></th><th><button class="num" onclick="ro()">R0</button></th></tr>
+
+        <tr><th><button class="b" onclick="pie()">ㅠ</button></th><th><button class="b" onclick="xyzde()">x^2</button></th><th><button class="num" onclick='numberButton(1);'>1</button></th><th><button class="num" onclick='numberButton(2);'>2</button></th><th><button class="num" onclick='numberButton(3);'>3</button></th><th><button class="operator" onclick='subtractButton()'>-</button></th><th><button class="num" onclick="rest()">CE</button></th></tr>
+
+        <tr><th><button class="b" onclick="xyzd()">√x</button></th><th><button class="b" onclick="xyz()">%</button></th><th><button class="num" onclick='numberButton(0);'>0</button></th><th><button class="num" onclick='numberButton(".");'>.</button></th><th><button class="num" onclick="pm()">+/-</button></th>
+
+          <th><button class="operator" onclick="plusButton()">+</button></th><th><button class="operator" onclick='equalButton("=")'>=</button></th></tr>
+
+    </table>
+        
+        <nav>
+            <ul>
+              <oi>mc<br></oi>
+              <oi>m+<br></oi>
+              <oi>m-<br></oi>
+              <oi>mr<br></oi>
+              <oi>ㅠ<br></oi>
+              <oi>x^2<br></oi>
+              <oi>√x<br></oi>
+              <oi>%<br></oi>
+              <oi>/<br></oi>
+              <oi>*<br></oi>
+              <oi>-<br></oi>
+              <oi>+<br></oi>
+              <oi>=<br></oi>
+              <oi>R2<br></oi>
+              <oi>R0<br></oi>
+              <oi>ce<br></oi>
+              <oi>.<br></oi>
+              <oi>+/-<br></oi>
+              <oi>1,2,3,4,5,6,7,8,9,0<br></oi>
+            </ul>
+          </nav>
+  </div>
+
+</body>
+
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+  <meta charset="utf-8">
+
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+  <title>JS Bin</title>
+
+  <style>
+
+ @media (max-width:540px){
+
+      div.empty{display:none;}
+
+      div.vertical{display:block;}
+
+      div.horizontal{display:none;}
+
+    }
+
+    @media (max-width:360px){
+
+      div.empty{display:block;}
+
+      div.vertical{display:none;}
+
+      div.horizontal{display:none;}
+
+    }
+
+    @media (min-width:541px){
+
+      div.empty{display:none;}
+
+      div.vertical{display:none;}
+
+      div.horizontal{display:block;}
+
+    }
+
+    #display{}
+
+    table{padding:60px;}
+
+    td{}
+
+    button{
+
+      width:60px;
+
+      height:60px;
+
+    }
+
+    button.operator{
+
+      background-color:yellow;
+
+    }
+
+    button.b{
+
+      background-color:lightgray;
+
+    }
+
+    button:hover{}
+
+  </style>
+
+</head>
+
+<body>
+
+  <div class="empty"><p>표시할수 없음.</p></div>
+
+  <div class="vertical">
+
+    <table width=360 height=660 border=0 bgcolor=#dee4ea>
+
+      <tr  border=0><th colspan="4" align=right bgcolor=#ffffff><span id="display"><p>30</p></span></th></tr>
+
+      <tr><td><button class="b">mc</button></td><td><button class="b">m+</button></td><td><button class="b">m-</button></td><td><button class="b">mr</button></td></tr>
+
+      <tr><td><button class="b">CE</button></td><td><button class="b">√x</button></td><td><button class="b">%</button></td><td><button class="operator">/</button></td></tr>
+
+      <tr><td><button>7</button></td><td><button>8</button></td><td><button>9</button></td><td><button class="operator">*</button></td></tr>
+
+      <tr><td><button>4</button></td><td><button>5</button></td><td><button>6</button></td><td><button class="operator">-</button></td></tr>
+
+      <tr><td><button>1</button></td><td><button>2</button></td><td><button>3</button></td><td><button class="operator">+</button></td></tr>
+
+      <tr><td><button>0</button></td><td><button>.</button></td><td><button>+/-</button></td><td><button class="operator">=</button></td></tr>
+
+      <tr><td><button class="b">ㅠ</button></td><td><button class="b">x^2</button></td><td><button class="b">R2</button></td><td><button class="b">R0</button></td></tr>
+
+      <tr><th colspan="4" style="color:blue;"><i><u>Get a Widget for this Calculator</u></i></th></tr>
+
+      <tr><th colspan="4" align=right><p>20193127 이성민</p></th></tr>
+    </table>
+
+    </div>
+
+  <div class="horizontal">
+
+    <table width=600 height=360 border=0 bgcolor=#dee4ea>
+        <tr  border=0><th colspan="7" align=right bgcolor=#ffffff><span id="display"><p>30</p></span></th></tr>
+        
+        <tr><th><button class="b">mc</button></th><th><button class="b">m+</button></th><th><button>7</button></th><th><button>8</button></th><th><button>9</button></th><th><button class="operator">/</button></th><th><button>R2</button></th></tr>
+
+        <tr><th><button class="b">m-</button></th><th><button class="b">mr</button></th><th><button>4</button></th><th><button>5</button></th><th><button>6</button></th><th><button class="operator">*</button></th><th><button>R0</button></th></tr>
+
+        <tr><th><button class="b">ㅠ</button></th><th><button class="b">x^2</button></th><th><button>1</button></th><th><button>2</button></th><th><button>3</button></th><th><button class="operator">-</button></th><th><button>CE</button></th></tr>
+
+        <tr><th><button class="b">√x</button></th><th><button class="b">%</button></th><th><button>0</button></th><th><button>.</button></th><th><button>+/-</button></th>
+          <th><button class="operator">+</button></th><th><button class="operator">=</button></th></tr>
+      <tr><th colspan="7" align=right style="color:blue;"><i><u>Get a Widget for this Calculator</u></i></th></tr>
+      <tr><th colspan="7" align=right><p>20193127 이성민</p></th></tr>
+    </table>
+  </div>
+
+</body>
+
+</html>

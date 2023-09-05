@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  
+</head>
+<style>
+    td{
+        border:5px solid rgb(20, 4, 110);
+        background-color: rgb(255, 166, 0);
+        margin:10px;
+        border-radius:15px;
+    }
+    table{
+        border: 5px solid rgb(255, 153, 0);
+        border-radius:15px;
+        background-color: rgb(255, 255, 255);
+        padding :5px;
+        border-spacing: 10px;
+    }
+    img{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
+<body>
+        <div style="background-color:darkblue;padding:5px">
+        <table >
+            <colgroup><col width="200"><col width="200"><col width="200"><col width="200"></colgroup>
+            <tr>
+                <td height="100"><img src="1a1.png"><br/><br/></td>
+                <td height="100"><img src="2a2.png"><br/><br/></td>
+                <td height="100"><img src="3a3.png"><br/><br/></td>
+                <td height="100"><img src="4a4.png"><br/><br/></td>
+            </tr>
+            <tr>
+                <th><h5>사람과 사람 사이<br/>두 팔 간격 거리 유지</h4></th>
+                <th><h>마스크 착용<h><h6>*예외 2세미만, 호흡 곤란자,</br>도움 없이 마스크 못 벗는 경우</h6></th>
+                <th><h5>사람이 많이 모이는 곳<br/>방문 자제</h5></th>
+                <th><h5>흐르는 물에 비누로<br/>30초 이상 손 씻기</h5></th> 
+            </tr>
+            <tr>
+                <td height="100"><img src="5a5.png"><br/><br/></td>
+                <td rowspan=5 colspan=2 height=300><br/><br/></td>
+                <td><img src="6a6.png"><br/><br/></td>
+            </tr>
+            <tr>
+                <th><h5>씻기 않은 손으로<br/>눈*코*입 만지지 않기</h5></h5></th>
+                <th><h5>기침이나 재채기 할때<br/>옷매나 휴지로<br/>입과 코 가리기</h5></th>
+            </tr>
+            
+            <tr>
+                <td height=100><img src="7a7.png"><br/><br/></td>
+                <td height=100><img src="8a8.png"><br/><br/></td>
+            </tr>
+            <tr>
+                <th><h5>매일주기적환기<br/>자주만지는 표면소독청소</h5></h5></th>
+                <th><h5>발열,호흡기증상<br/>있는 사람과 접촉피하기</h5></th>
+            </tr>
+
+            <tr>
+                <td rowspan=2 height=200><img src="9a9.png"><br/><br/></td>
+                <td rowspan=2 height=200><img src="10a10.png"><br/><br/></td>
+            </tr>
+            <tr>
+                <th colspan=2><h5>주요증상<br/>발열(36.5C),기침,호흡곤란,오한,근육통,두통,인후통,후각,미각<br/>소실등 그외에 피로,식용감소,가래,소화기증상(오심,구토,설사 등),<br/>혼돈,어지러움,콧물,코막힘,객혈,흉통,결막염,피부 등</h5></th>
+            
+            </tr>
+            <th ><h5>본인의 코로나19<br/>임상증상 발생 확인</h5></h5></th>
+            <th colspan=2></th>
+            
+            <th><h5>필요하지 않는 여행<br/>자제하기</h5></th>
+        </tr>
+            <tr>
+                <td colspan=2 style="border: 2px solid white; background-color: white;"><br/><br/></tr>
+            </tr>
+        </table>    
+      </div>
+</body>
+</html>

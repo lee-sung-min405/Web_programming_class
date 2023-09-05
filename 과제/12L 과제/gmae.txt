@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <link rel ="stylesheet" type="text/css" href="./minesweeper.css">
+  <script src="./minesweeper.js"></script>
+  <title>Mine Sweeper</title>
+  <style>
+      .board{
+          position: relative;
+          border: 2px outset;
+          padding: 5px;
+          width: 724px;
+      }
+      .control{
+          border: 2px inset;
+          margin-bottom: 5px;
+      }
+      .field{
+          line-height: 12px;
+          border: 2px inset;
+      }
+      .cellClosed{
+          position: relative;
+          display: inline-block;
+          background-color: lightgray;
+          width: 16px;
+          height:16px;
+          margin: 0px 0px;
+          border: 4px outset;
+      }
+      .cellOpen{
+        position: relative;
+        display: inline-block;
+        background-color: lightgray;
+        width: 22px;
+        height: 22px;
+        margin: 0px 0px;
+        padding: 0px 0px;
+        border: 1px solid silver;
+        text-align: center;
+      }
+      #reset{
+        border:2px outset;
+        cursor:pointer;
+        height: 42px;
+        width:42px;
+      }
+      span.count{
+          position: absolute;
+          top:4px;
+          left:5px;
+          font-weight: bold;
+          font-size: 20px;
+          cursor:default;
+      }
+      span.cnt0{color: #000000;}
+      span.cnt1{color: #007B00;}
+      span.cnt2{color: #FF0000;}
+      span.cnt3{color: #00007B;}
+      span.cnt4{color: #7B0000;}
+      span.cnt5{color: #00007B;}
+      span.cnt6{color: #007B7B;}
+      span.cnt7{color: #FFFFFF;}
+
+      span.bomb{
+          position: absolute;
+          top:1px;
+          left:0px;
+          font-weight: bold;
+          font-size:16px;
+          cursor: default;
+      }
+
+  </style>
+</head> 
+
+<body>
+    <div class='board'>
+        <div class='control'>
+            <span id='bomb'>000</span>
+            <button id='reset'></button>
+            <span id='time'>000</span>
+        </div>
+    </div class='field'>
+    <script>
+        const height=16;
+        const width=30;
+        const nBombs=99;
+        const arraySize=height*width;
+        const neighbor = [[-1,-1], [-1,0], [-1,1], [0,-1], [0,1], [1,-1], [1,0], [1,1]];
+
+        let isStarted = false;
+        let isGameEnd = false;
+        let curTime = 0;
+        let leftMB = false;
+        let rightMB = false;
+        let bothMB = false;
+        let remainBombs = 99;
+        let cells = Array(arraySize);
+        cells.fill(0);
+        let checked=Array(arraySize);
+        checked.fill(0);
+
+        for(let i=0; i<height; i++){
+            for(let j=0; j<width; j++){
+                id = i * width + j;
+                //document.write('<div class=cellColsed id=${id} onclick="leftClick(this, '${id}');"></div>');
+                document.write("<div class = cellClosed id = " + id);
+                document.write("onmousedown='mouseDown(event, this, "+ id +");'");
+                document.write("onmouseup='mouseUp(event, this,"+ id +");'");
+                document.write("oncontextmenu ='doNothing(event);'");
+                document.write("></div>");
+            }
+            document.write("<br/>");
+        }
+        ////////////////////////////////////////////////////////////
+        function bombCount(i,j){
+            let bombCount=0;
+            let ii;
+            let jj;
+            for(let k=0; k<8; k++){
+                ii=i+neighbor[k][0];
+                jj=j+neighbor[k][1];
+                if(ii<0 || height<=ii)continue;
+                if(jj<0 || width<=jj)continue;
+                if(cells[ii*width+jj]==1)bombCount++;
+            }
+            return bombCount;
+        }
+
+        function timeCount(){
+            curTime++;
+            document.getElementById('time').innerHTML= leadingZeros(curTime,3);
+            if(curTime==999){
+                gameOver();
+            }
+        }
+
+        function leadingZeros(n,digits){
+
+        }
+     //////////////////////////////////////////////////////////////////////
+     
+        function mouseDown(e,element,id){
+            //console.log("down"+e.button + ""+leftMB + "" + rightMB);
+            if(e.button==0)leftMB=true;
+            else if (e.button ==2)rightMB=true;
+        }
+        function mouseUp(e,element,id){
+            //console,log("up"+e.button+" "+leftMB+" "+rightMB);
+            if(bothMB){
+                leftMB=false;
+                rightMB=false;
+                bothMB=false;
+                return;
+            }
+            if(e.button==0){
+                if(rightMB == false)leftClick(element,id);
+                else{
+                    bothMB=true;
+                    bothClick(element,id);
+                }
+                leftMB=false;
+            }
+            else if(e.button==2){
+                if(leftMB==false)rightClick(element,id);
+                else{
+                    bothMB=true;
+                    bothClick(element,id);
+                }
+                rightMB=false;
+            }
+        }
+        
+        function doNothing(e){
+            //console.log("context menu clicked");
+            e.preventDefault();
+        }
+        ///////////////////////여기서 부터 확인을 해야합니다.444/////////////////////////
+        function leftClick(element,id){
+            if(isGameEnd==true) return;
+            //console.log("left mouse buttom clicked");
+            const i =parseInt(id/width);
+            const j =id%width;
+            let ii,jj;
+            if(isStarted==false){
+                for(k=0;k<nBombs;k++){
+                    ii=i;
+                    jj=j;
+                    while((ii-i)*(ii-i)<2 && (jj-j)*(jj-j)<2 && cells[ii*width+jj]==0){
+                        ii=Math.floor((Math.random()*height));
+                        jj=Math.floor((Math.random()*width));
+                    }
+                    cells[ii*width+jj]=1;
+                }
+                myInterval=setInterval(timeCount,1000);
+                isStarted=true;
+            }
+            openCells(i,j);
+        }
+
+        function rightClick(element,id){
+            if(isGameEnd==true)return;
+            if(remainBombs==0 && checked[id]==0)return;
+            const i =parseInt(id/width);
+            const j =id%width;
+            if(checked[id]==1){
+                checked[id]=0;
+                remainBombs++;
+                document.getElementById(String(i*width+j)).style.backgroundColor='lightgray';
+            }
+            else{
+                checked[id]=1;
+                remainBombs--;
+                document.getElementById(String(i*width+j)).style.backgroundColor='orange';
+            }
+            document.getElementById('bomb').innerHTML=leadingZeros(remainBombs,3);
+        }
+
+        function bothClick(element,id){
+            if(isGameEnd==true)return;
+        }
+        function openCells(p,q){
+
+            let visited = Array(arraySize);
+            visit.fill(0);
+            let queue = Array(arraySize);
+            queue.fill(0);
+            front=0;
+            rear=0;
+            
+            function deq(){
+                //if(front ==rear)retuen -1;
+                return queue[front++]
+            }
+
+            function enq(id){
+                queue[rear++]=id;
+            }
+
+            let i = p;
+            let i = q;
+            let ii;
+            let jj;
+
+            let id = i*width+j;
+            if(cells[id]==2)return;
+            if(checked[id]==1)return;
+            if(cells[id]==1){
+                document.getElementById(String(id)).style.backgroundColor='red';
+                gameOver();
+                return;
+            }
+
+            openCell(i,j);
+            if(visited[id]==0 && bombCount(i,j)==0){
+                enq(i*width+j);
+            }
+                visited[i*width+j]=1;
+                while(front != rear){
+                    id=deq();
+                    i=parseInt(id/width);
+                    j=id%width;
+                    openCell(i,j);
+                    for(let k=0; k<8; k++){
+                        ii=i+neighbor[k][0];
+                        jj=j+neighbor[k][1];
+                        if(ii<0 || 16<=ii) continue;
+                        if(jj<0 || 30<=jj) continue;
+
+                        openCell(ii,jj);
+                        iidd=ii*width+jj;
+                        if(visited[iidd]==0 && bombCount(ii,jj)==0){
+                            enq(iidd);
+                        }
+                        visited[iidd]=1;
+                    }
+                }
+            
+            for(let i=0; i<height; i++){
+                for(let j=0;j<width;j++){
+                    id=i*width+j;
+                    if(cells[id]==1)return;
+                }
+            }
+            gameOver();
+    }
+        function openCell(i,j){
+            let id = i*width+j;
+            bombs = bombCount(i,j);
+            extBombCount = "<span calss='count cnt" + bombs + "'>"+(bombs?bombs:"")+"<span>";
+            document.getElementById(String(id)).className='cellOpen';
+            document.getElementById(String(id)).innerHTML=extBombCount;
+        }
+
+        function gameOver(){
+            isGameEnd=true;
+            clearInterval(myInterval);
+            for(let i =0; j<height; i++){
+                for(let j=0; j<width; j++){
+                    id=i*width+j;
+                    if(cells[id]==1){
+                        document.getElementById(String(id)).innerHTML="<span class='bomb'>◎</span>";
+                    }
+                    if(cells[id]==0 && checked[id]==1){
+                        document.getElementById(String(id)).style.backgroundColor='red';
+                        document.getElementById(String(id)).innerHTML = "<span class='bomb cnt7'>●</span>";
+
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>
